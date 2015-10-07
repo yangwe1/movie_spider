@@ -184,10 +184,3 @@ class Thunder(object):
             }
             resp = self.sess.post(url=create_url, headers=header_info, data=form_data)
             print resp.content
-
-
-if __name__ == '__main__':
-    thunder = Thunder({'username': 'mm4690', 'pwd': 'tnVT`msHI1_pw:7K', 'device_name': 'YW-OpenWrt'})
-    thunder.log_in()
-    thunder.select_device()
-    thunder.create_task('http://xz.66vod.net:889/2015/Spy.2015.UNRATED.1080p.BluRay.DTS.x264-HDS.torrent')
