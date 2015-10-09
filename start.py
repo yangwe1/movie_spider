@@ -2,25 +2,29 @@
 __author__ = 'yw'
 import json
 import traceback
-from time import sleep
+import time
 
 from movie_spider.dygang.dygang import MovieBay
 from movie_spider.remote_dl.thunder import Thunder
+from movie_spider.utils.time_schedule import schedule
 
-movie = MovieBay('ys')
+with open('config.json') as fd:
+    config = json.load(fd)
+interval = 3600 * config['interval']
+movie = MovieBay(config['moviebay'])
 while True:
+    schedule(config['start_time'], config['stop_time'])
     try:
         new_movie = movie.check_new_movie()
     except:
         traceback.print_exc()
-        sleep(60)
+        time.sleep(60)
         continue
     if len(new_movie) == 0:
-        sleep(3600)
+        print "new movie NOT found, scanning will be restart in 1 hour."
+        time.sleep(interval)
         continue
-    with open('config.json') as fd:
-        config = json.load(fd)
-    thunder = Thunder(config)
+    thunder = Thunder(config['thunder'])
     try:
         thunder.log_in()
         thunder.select_device()
@@ -30,5 +34,7 @@ while True:
         for i in new_movie:
             if 'magnet' not in i:
                 thunder.create_task(i)
-                sleep(1)
-    sleep(3600)
+                print "new movie added:", i
+                time.sleep(1)
+    print "mission completed. scanning will be restart in %s hour." % config['interval']
+    time.sleep(interval)

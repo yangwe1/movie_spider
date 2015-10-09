@@ -1,5 +1,14 @@
 {
-  "username": "username",
-  "pwd": "password",
-  "device_name": "OpenWrt"
+  "thunder":{
+    "username": "username",
+    "pwd": "password",
+    "device_name": "OpenWrt"
+  },
+  "moviebay":{
+    "movie_category": "ys",
+    "page": 1
+  },
+  "start_time": "8:00",
+  "stop_time": "18:00",
+  "interval": 1
 }
