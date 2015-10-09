@@ -11,7 +11,7 @@ from movie_spider.utils.time_schedule import schedule
 with open('config.json') as fd:
     config = json.load(fd)
 interval = 3600 * config['interval']
-movie = MovieBay(config['moviebay'])
+movie = MovieBay(**config['moviebay'])
 while True:
     schedule(config['start_time'], config['stop_time'])
     try:
