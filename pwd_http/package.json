@@ -1,0 +1,7 @@
+{
+  "name": "thunder_pwd",
+  "dependencies": {
+    "get-random-values": "1.1.1",
+    "md5": "2.0.0"
+  }
+}
