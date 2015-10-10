@@ -43,7 +43,7 @@ class MovieBay(object):
                 resp.encoding = 'gb2312'
                 doc = PyQuery(resp.text)
                 for each in doc("table[bgcolor='#0099cc'] > tbody > tr").items():
-                    if u'网盘' not in each.text():
+                    if u'网盘' not in each.text() and each('a').attr.href is not None:
                         download_link.append(each('a').attr.href)
                         break
         return download_link
@@ -61,6 +61,8 @@ class MovieBay(object):
             for each in now_links:
                 if each not in original_links:
                     new_links.append(each)
+            with open('{}.json'.format(self.category), 'w') as f:
+                json.dump(now_links, f)
         return new_links
 
 

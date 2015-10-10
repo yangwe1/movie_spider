@@ -8,21 +8,11 @@ def schedule(start, stop):
     stop_h, stop_m = stop.split(':')
     while True:
         current_h, current_m = time.strftime('%H:%M', time.localtime()).split(':')
-        if int(current_h) > int(start_h):
+        if int(start_h) < int(current_h) < int(stop_h):
             break
-        elif int(current_h) == int(start_h):
-            if int(current_m) > int(start_m):
-                break
-            else:
-                time.sleep(3600)
-        else:
-            time.sleep(3600)
-        if int(current_h) < int(stop_h):
+        elif int(current_h) == int(start_h) and int(current_m) > int(start_m):
             break
-        elif int(current_h) == int(stop_h):
-            if int(current_m) < int(stop_m):
-                break
-            else:
-                time.sleep(3600)
+        elif int(current_h) == int(stop_h) and int(current_m) < int(stop_m):
+            break
         else:
             time.sleep(3600)
