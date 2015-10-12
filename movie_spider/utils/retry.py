@@ -32,3 +32,17 @@ def get_response(url, **kwargs):
     except ConnectionError, e:
         print e
     return response
+
+def retry(attempt):
+    def decorator(func):
+        def wrapper(*args, **kw):
+            att = 0
+            while att < attempt:
+                try:
+                    return func(*args, **kw)
+                except Exception as e:
+                    att += 1
+
+        return wrapper
+
+    return decorator
