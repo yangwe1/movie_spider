@@ -62,7 +62,7 @@ class MovieBay(object):
                 if each not in original_links:
                     new_links.append(each)
             with open('{}.json'.format(self.category), 'w') as f:
-                json.dump(now_links, f)
+                json.dump(now_links, f, indent=2)
         return new_links
 
 
