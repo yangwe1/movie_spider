@@ -26,7 +26,7 @@ interval = 3600 * config['interval']
 movie = MovieBay(**config['moviebay'])
 
 
-@retry
+@retry(3)
 def add_movie(thunder_conf, movies):
     success = 0
     if isinstance(movies, list):

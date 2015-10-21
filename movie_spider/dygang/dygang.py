@@ -49,7 +49,7 @@ class MovieBay(object):
         return download_link
 
     def check_new_movie(self):
-        new_links = []
+        ret_new_links = []
         try:
             with open('{}.json'.format(self.category), 'r') as f:
                 original_links = json.load(f)
@@ -60,17 +60,17 @@ class MovieBay(object):
             now_links = self.get_download_link()
             for each in now_links:
                 if each not in original_links:
-                    new_links.append(each)
+                    ret_new_links.append(each)
             with open('{}.json'.format(self.category), 'w') as f:
                 json.dump(now_links, f, indent=2)
-        return new_links
+        return ret_new_links
 
 
 if __name__ == '__main__':
-    m = MovieBay('1080p', 4)
+    m = MovieBay('ys', 1)
     l = m.get_download_link()
-    with open('1080p.json', 'w') as fd:
-        json.dump(l, fd)
+    with open('ys.json', 'w') as fd:
+        json.dump(l, fd, indent=2)
     for i in l:
         if 'magnet' not in i:
             print i

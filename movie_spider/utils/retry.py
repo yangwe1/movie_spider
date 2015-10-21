@@ -1,3 +1,5 @@
+# coding=utf-8
+
 __author__ = 'yw'
 from requests import request, Session
 from requests.exceptions import ConnectionError, Timeout
@@ -32,6 +34,7 @@ def get_response(url, **kwargs):
     except ConnectionError, e:
         print e
     return response
+
 
 def retry(attempt):
     def decorator(func):
