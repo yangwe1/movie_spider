@@ -10,5 +10,19 @@
   },
   "start_time": "8:00",
   "stop_time": "18:00",
-  "interval": 1
+  "interval": 1,
+  "mail":{
+    "server":{
+      "isSSL": true,
+      "smtp": "smtp.exmail.qq.com",
+      "port": 465,
+      "user": "username",
+      "password": "password"
+    },
+    "mail":{
+      "subject": "新增下载任务",
+      "from": "username",
+      "to": "username"
+    }
+  }
 }

@@ -7,6 +7,7 @@ from time import time
 from urllib import unquote
 
 reg = re.compile('window\.parent\._POST_CALLBACK_\d_\((.*?)\)')
+reg_task_rtn = re.compile('\((.*?)\)')
 
 
 class Thunder(object):
@@ -183,4 +184,6 @@ class Thunder(object):
                 })
             }
             resp = self.sess.post(url=create_url, headers=header_info, data=form_data)
-            print resp.content
+            move_file_name = json.loads(reg_task_rtn.findall(resp.content)[0])['tasks'][0][
+                'name'] if reg_task_rtn.findall(resp.content) else 'Unknown'
+

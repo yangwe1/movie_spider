@@ -4,7 +4,6 @@ __author__ = 'yw'
 import json
 from pyquery import PyQuery
 from requests import Session
-
 from movie_spider.utils.retry import get_response
 
 
@@ -43,7 +42,8 @@ class MovieBay(object):
                 resp.encoding = 'gb2312'
                 doc = PyQuery(resp.text)
                 for each in doc("table[bgcolor='#0099cc'] > tbody > tr").items():
-                    if u'网盘' not in each.text() and each('a').attr.href is not None:
+                    if u'网盘' not in each.text() and each('a').attr.href is not None and not each(
+                            'a').attr.href.endswith('html'):
                         download_link.append(each('a').attr.href)
                         break
         return download_link
