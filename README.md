@@ -12,7 +12,7 @@ cd pwd_http
 sudo npm install
 ```
 ## Setup
-编辑 movie_spider/config.json 文件
+编辑 `movie_spider/config.json` 文件
 
 ### thunder
 迅雷远程下载登陆部分
@@ -25,8 +25,8 @@ sudo npm install
 电影港爬取监控部分
 
 * category:
-    * 可选值有 ys/bd/gy/gp/dsj/dsj1/yx/zy/dmq/jilupian/1080p/720p/3d 等
-    * 分别对应 最新电影/BD高清/国配电影/.../3D电影(详见[电影港](http://www.dygang.com/)横栏)   
+    * 可选值有 `ys/bd/gy/gp/dsj/dsj1/yx/zy/dmq/jilupian/1080p/720p/3d` 等
+    * 分别对应 `最新电影/BD高清/国配电影/.../3D电影`(详见[电影港](http://www.dygang.com/)横栏)   
 * page: 值为整数，需要监控的页数，建议3页之内
 
 ### time_schedule
@@ -35,7 +35,7 @@ sudo npm install
 * start: 开始
 * stop: 停止
 
-一直运行则分别为"0:00","24:00"
+一直运行则分别为`"0:00"`,`"24:00"`
 
 ### interval
 扫描电影网站的时间间隔，比如1则代表每隔1小时扫描电影港指定类别的电影是否有新片加入
@@ -51,8 +51,8 @@ sudo npm install
     * password: 登陆密码
 * mail 用于设置邮件相关内容
     * subject: 邮件主题
-    * from: 发件人地址，如weiyang512@gmail.com
-    * to: 收件人地址，如weiyang512@gmail.com
+    * from: 发件人地址，如`weiyang512@gmail.com`
+    * to: 收件人地址，如`weiyang512@gmail.com`
     
 ## Run
 
@@ -63,4 +63,4 @@ cd ..
 nohup python start.py &
 ```
 ## To-do
-将 pwd_http 改写，或者会加到 python 里，或者会用 Ice; 加一些硬盘空间监控，考虑一下比较智能些的删除老片释放空间的方式
+将 `pwd_http` 改写，或者会加到 `python` 里，或者会用 `Ice`; 加一些硬盘空间监控，考虑一下比较智能些的删除老片释放空间的方式
