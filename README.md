@@ -20,6 +20,7 @@ sudo npm install
 * username: 迅雷用户名
 * pwd: 密码
 * device_name: 迅雷远程下载中要指定的设备名称
+
 ### moviebay
 电影港爬取监控部分
 
@@ -27,12 +28,15 @@ sudo npm install
     * 可选值有 ys/bd/gy/gp/dsj/dsj1/yx/zy/dmq/jilupian/1080p/720p/3d 等
     * 分别对应 最新电影/BD高清/国配电影/.../3D电影(详见[电影港](http://www.dygang.com/)横栏)   
 * page: 值为整数，需要监控的页数，建议3页之内
+
 ### time_schedule
 脚本每天运行的起止时间，24小时制
+
 * start: 开始
 * stop: 停止
 
 一直运行则分别为"0:00","24:00"
+
 ### interval
 扫描电影网站的时间间隔，比如1则代表每隔1小时扫描电影港指定类别的电影是否有新片加入
 
@@ -49,6 +53,7 @@ sudo npm install
     * subject: 邮件主题
     * from: 发件人地址，如weiyang512@gmail.com
     * to: 收件人地址，如weiyang512@gmail.com
+    
 ## Run
 
 ```
