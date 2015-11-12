@@ -51,7 +51,7 @@ if __name__ == '__main__':
     interval = 3600 * config['interval']
     movie = MovieBay(**config['moviebay'])
     while True:
-        schedule(config['start_time'], config['stop_time'])
+        schedule(**config['time_schedule'])
         try:
             new_movie = movie.check_new_movie()
         except:

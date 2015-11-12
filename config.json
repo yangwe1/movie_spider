@@ -8,8 +8,10 @@
     "category": "ys",
     "page": 1
   },
-  "start_time": "8:00",
-  "stop_time": "18:00",
+  "time_schedule":{
+    "start": "8:00",
+    "stop": "18:00"
+  },
   "interval": 1,
   "mail":{
     "server":{
